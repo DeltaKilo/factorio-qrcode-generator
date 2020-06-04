@@ -19,11 +19,12 @@
     "react-dom": "16.13.1"
   },
   "devDependencies": {
+    "autoprefixer": "^9.8.0",
     "eslint": "^7.1.0",
     "eslint-plugin-react": "^7.20.0",
     "postcss-preset-env": "^6.7.0",
+    "sass": "^1.26.7",
     "tailwindcss": "^1.4.6",
-    "vercel": "^19.0.1",
-    "sass": "^1.26.7"
+    "vercel": "^19.0.1"
   }
 }
