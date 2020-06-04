@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import dynamic from "next/dynamic";
 import Header from "layout/header";
 import QRCodes from "components/qrcodes";
 import BluePrintText from "components/blueprinttext";
