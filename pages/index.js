@@ -77,13 +77,13 @@ export default function Home() {
                 <div className="flex-1 w-24">
                   <div className="inline-block relative w-24 mb-4 ">
                     <label htmlFor="targetScale" className="block text-grey-darker text-sm font-bold mb-2">Scale</label>
-                    <select id="targetScale" onChange={(e) => changeTargetScale(e) }
+                    <select id="targetScale" value={targetScale} onChange={(e) => changeTargetScale(e) }
                       className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 rounded px-4 py-2 pr-8  shadow leading-tight focus:outline-none focus:shadow-outline">
-                      <option>1x</option>
-                      <option selected="selected">2x</option>
-                      <option>3x</option>
-                      <option>4x</option>
-                      <option>5x</option>
+                      <option value="1">1x</option>
+                      <option value="2">2x</option>
+                      <option value="3">3x</option>
+                      <option value="4">4x</option>
+                      <option value="5">5x</option>
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 pt-6 text-gray-500">
                       <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -95,9 +95,9 @@ export default function Home() {
                 <div className="flex-1 w-48">
                   <div className="inline-block relative w-48 mb-4 ">
                     <label htmlFor="targetTiles" className="block text-grey-darker text-sm font-bold mb-2">Concrete?</label>
-                    <select id="targetTiles" onChange={(e) => changeTileMaterial(e)}
+                    <select id="targetTiles" value={tileMaterial} onChange={(e) => changeTileMaterial(e)}
                       className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-                      <option selected="selected" value="">no</option>
+                      <option value="">no</option>
                       <option value="stone-path">Stone bricks</option>
                       <option value="concrete">Concrete</option>
                       <option value="refined-concrete">Refined concrete</option>
