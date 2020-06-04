@@ -2,18 +2,24 @@ import {deflate} from "pako/lib/deflate";
 import * as qr from "qr-image";
 
 
-export default function getBlueprintString(text, scale=2, concrete=false){
+export default function getBlueprintString(text, scale= 2, tileMaterial= false){
+  try{
+    return "0" + window.btoa(String.fromCharCode(...getDeflatedData(text,scale,tileMaterial))
+    );
+  }
+  catch(e){
+    // alert("ERROR: Blueprint is too large");
+    return (`ERROR: Blueprint is too large \n${e.toString()}`);
 
-  return "0" + window.btoa(String.fromCharCode(...getDeflatedData(text,scale,concrete))
-  );
+  }
 }
 
-const getDeflatedData = (text,scale,concrete) => {
+const getDeflatedData = (text,scale,tileMaterial) => {
   return deflate(
-    new TextEncoder("utf-8").encode(getFactorioBlueprintObjectString(text,scale,concrete)));
+    new TextEncoder("utf-8").encode(getFactorioBlueprintObjectString(text,scale,tileMaterial)));
 };
 
-const getFactorioBlueprintObjectString = (text,scale,concrete) => {
+const getFactorioBlueprintObjectString = (text,scale,tileMaterial) => {
   const matrix = qr.matrix(text);
 
   const matrixSize = matrix.length;
@@ -61,7 +67,7 @@ const getFactorioBlueprintObjectString = (text,scale,concrete) => {
   }
 
   let tiles = new Array(Math.pow(matrixSize+4,2));
-  if (concrete){
+  if (tileMaterial){
     let tileIndex=0;
     for (let i=0;i<(matrixSize+4)*scale;i++){
       for (let j=0;j<(matrixSize+4)*scale;j++){
@@ -70,7 +76,7 @@ const getFactorioBlueprintObjectString = (text,scale,concrete) => {
             "x": j,
             "y": i
           },
-          "name": "concrete"
+          "name": tileMaterial
         };
         tileIndex++;
       }
@@ -94,7 +100,7 @@ const getFactorioBlueprintObjectString = (text,scale,concrete) => {
 
         }
   };
-  if(concrete)
+  if(tileMaterial)
     bluepringObject.blueprint.tiles = tiles;
 
   return JSON.stringify(bluepringObject);

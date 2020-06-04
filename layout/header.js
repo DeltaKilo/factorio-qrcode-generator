@@ -4,15 +4,14 @@ import ForkMe from "components/forkme";
 export default function Header() {
   return(
     <>
-      {/*<ForkMe/>*/}
+      <ForkMe/>
       <Head>
         <title>Factorio QR Code Generator</title>
         {/*<link rel="icon" href="/favicon.ico"/>*/}
       </Head>
 
-      {/*<ForkMe/>*/}
-      <div className="flex-1 w-full h-12 bg-gray-500">
-        <h1 className="text-4xl sm:text-2x1 font-black mb-4">Factorio QR Code Generator</h1>
+      <div className="w-full bg-gray-500 self-center container">
+        <h1 className="text-base sm:text-xl md:text-4xl lg:text-4xl xl:text-4xl font-black mx-4 ">Factorio QR Code Generator</h1>
       </div>
     </>
   );
