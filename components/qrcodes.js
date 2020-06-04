@@ -13,7 +13,6 @@ export default function QRCodes({text}) {
       </div>
     );
   }catch (e) {
-    alert("String is too long");
     return (
       <div className="xl:w-1/3 lg:w-1/3 md:w-full sm:w-full w-full bg-gray-300">
         <p>String is too long</p>
